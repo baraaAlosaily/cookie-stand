@@ -1,6 +1,9 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable no-undef */
 'use strict';
 let hoursOfWork = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm'];
 
+// eslint-disable-next-line no-unused-vars
 let LocationOne = {
   storeName: 'Seattle.',
   minCustomers: 23,
@@ -38,10 +41,9 @@ let LocationOne = {
   }
 };
 
-first.getAvgCustomersHour();
-first.getAvgCookiesHour();
-first.render();
-first.total();
+// eslint-disable-next-line no-undef
+LocationOne.render();
+LocationOne.total();
 
 let LocationTwo = {
   storeName: 'Tokyo.',
@@ -80,10 +82,8 @@ let LocationTwo = {
   }
 };
 
-seatac.getAvgCustomersHour();
-seatac.getAvgCookiesHour();
-seatac.render();
-seatac.total();
+LocationTwo.render();
+LocationTwo.total();
 
 let LocationThree = {
   storeName: 'Dubai.',
@@ -122,10 +122,8 @@ let LocationThree = {
   }
 };
 
-seacenter.getAvgCustomersHour();
-seacenter.getAvgCookiesHour();
-seacenter.render();
-seacenter.total();
+LocationThree.render();
+LocationThree.total();
 
 let LocationFour = {
   storeName: 'Paris.',
@@ -163,10 +161,8 @@ let LocationFour = {
     caphillUl.appendChild(liEl);
   }
 };
-caphill.getAvgCustomersHour();
-caphill.getAvgCookiesHour();
-caphill.render();
-caphill.total();
+LocationFour.render();
+LocationFour.total();
 
 let LocationFive = {
   storeName: 'Lima.',
@@ -205,7 +201,6 @@ let LocationFive = {
   }
 
 };
-alki.getAvgCustomersHour();
-alki.getAvgCookiesHour();
-alki.render();
-alki.total();
+
+LocationFive.render();
+LocationFive.total();
