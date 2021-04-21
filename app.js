@@ -3,6 +3,7 @@ let hoursOfWork=['6am ','7am ','8am ','9am ','10am ','11am ','12am ','1pm ','2pm
 let stores=[];
 let total=0;
 const parentElemet=document.getElementById('class');
+const addForm=document.getElementById('myForm');
 
 function CookiesStore(name,cusMax,cusMin,AvrNumberCookies){
   this.name=name;
@@ -27,9 +28,13 @@ function CookiesStore(name,cusMax,cusMin,AvrNumberCookies){
   stores.push(this);
 }
 const seatle = new CookiesStore('Seatle',23,65,6.3);
+// eslint-disable-next-line no-unused-vars
 const tokyo = new CookiesStore('Tokyo',3,24,1.2);
+// eslint-disable-next-line no-unused-vars
 const dubai = new CookiesStore('Dubi',11,38,3.7);
+// eslint-disable-next-line no-unused-vars
 const paris = new CookiesStore('Paris',20,38,2.3);
+// eslint-disable-next-line no-unused-vars
 const lima = new CookiesStore('lima',2,16,4.6);
 
 console.log('seatle',seatle);
@@ -52,12 +57,9 @@ CookiesStore.prototype.render=function(){
 
 };
 tableHeader();
-seatle.render();
-tokyo.render();
-dubai.render();
-paris.render();
-lima.render();
-tableHeader2();
+for (let index = 0; index <stores.length; index++) {
+  stores[index].render();
+}
 
 function tableHeader(){
   let raw=document.createElement('tr');
@@ -104,6 +106,28 @@ function tableHeader2(){
   colomnTwo.textContent=total;
   total=0;
 }
+
+// s
+addForm.addEventListener('submit',clickHandler);
+
+function clickHandler(event){
+  let footer=parentElemet.lastChild;
+  event.preventDefault();
+  console.log(event.target.branchName);
+  const nameValue =event.target.branchName.value;
+  const maxCus=event.target.maxCusNum.value;
+  const minCus=event.target.minCusNum.value;
+  const avg=event.target.avgCook.value;
+
+  let newSotre= new CookiesStore(nameValue,maxCus,minCus,avg);
+  newSotre.getavg();
+  newSotre.render();
+  parentElemet.appendChild(footer);
+  addForm.reset();
+}
+
+tableHeader2();
+
 
 function getRandomIntInclusive(min,max){
   console.log('min,max',min,max);
