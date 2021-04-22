@@ -1,9 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&family=Oswald&display=swap");
 * {
   margin: 0%;
 }
 body {
-  font-family: "Roboto", sans-serif;
   background-color: #8ab6d6;
 }
 
@@ -14,6 +14,7 @@ header {
   background-color: #2978b5;
   padding: 10px;
   margin-bottom: 30px;
+  font-family: Arial, Helvetica, sans-serif;
 }
 header img {
   width: 150px;
@@ -38,11 +39,13 @@ header div :hover {
   grid-template-columns: repeat(2, 1fr);
   margin: 30px;
   align-items: center;
+  font-family: Georgia, "Times New Roman", Times, serif;
 }
 .first img {
   border-radius: 50%;
   width: 500px;
   align-items: right;
+  margin-left: 350px;
 }
 
 .first-one {
@@ -59,6 +62,7 @@ header div :hover {
 }
 
 .second div {
+  font-family: Georgia, "Times New Roman", Times, serif;
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   align-items: center;
@@ -111,6 +115,7 @@ footer li {
 }
 
 footer p {
+  font-family: Georgia, "Times New Roman", Times, serif;
   padding: 20px;
   color: white;
   text-align: center;
