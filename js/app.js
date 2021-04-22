@@ -27,6 +27,7 @@ function CookiesStore(name,cusMax,cusMin,AvrNumberCookies){
   this.getavg();
   stores.push(this);
 }
+// eslint-disable-next-line no-unused-vars
 const seatle = new CookiesStore('Seatle',23,65,6.3);
 // eslint-disable-next-line no-unused-vars
 const tokyo = new CookiesStore('Tokyo',3,24,1.2);
@@ -36,8 +37,6 @@ const dubai = new CookiesStore('Dubi',11,38,3.7);
 const paris = new CookiesStore('Paris',20,38,2.3);
 // eslint-disable-next-line no-unused-vars
 const lima = new CookiesStore('lima',2,16,4.6);
-
-console.log('seatle',seatle);
 
 CookiesStore.prototype.render=function(){
   let raw=document.createElement('tr');
@@ -56,10 +55,6 @@ CookiesStore.prototype.render=function(){
   parentElemet.appendChild(raw);
 
 };
-tableHeader();
-for (let index = 0; index <stores.length; index++) {
-  stores[index].render();
-}
 
 function tableHeader(){
   let raw=document.createElement('tr');
@@ -76,7 +71,8 @@ function tableHeader(){
   raw.appendChild(colomnTwo);
   colomnTwo.textContent='Daily Total';
 }
-function tableHeader2(){
+
+function tableFooter(){
   // eslint-disable-next-line no-undef
   raw=document.createElement('tr');
   // eslint-disable-next-line no-undef
@@ -107,11 +103,8 @@ function tableHeader2(){
   total=0;
 }
 
-// s
-addForm.addEventListener('submit',clickHandler);
-
 function clickHandler(event){
-  let footer=parentElemet.lastChild;
+  parentElemet.lastChild.remove();
   event.preventDefault();
   console.log(event.target.branchName);
   const nameValue =event.target.branchName.value;
@@ -122,11 +115,10 @@ function clickHandler(event){
   let newSotre= new CookiesStore(nameValue,maxCus,minCus,avg);
   newSotre.getavg();
   newSotre.render();
-  parentElemet.appendChild(footer);
+  tableFooter();
   addForm.reset();
 }
 
-tableHeader2();
 
 
 function getRandomIntInclusive(min,max){
@@ -136,7 +128,12 @@ function getRandomIntInclusive(min,max){
   return Math.floor(Math.random()*(max-min+1)+min);
 }
 
-// eslint-disable-next-line no-unused-vars
-let y=1;
-console.log(y);
+//call functions
+addForm.addEventListener('submit',clickHandler);
+tableHeader();
+for (let index = 0; index <stores.length; index++) {
+  stores[index].render();
+}
+tableFooter();
+
 
